@@ -1,4 +1,4 @@
-import {random, critic, hit, Min, against} from ".";
+import {random, critic, hit, Min, against, Critic} from "..";
 
 describe("role module should", () => {
   it("return a random value between 0 and the specified maximum", () => {
@@ -7,9 +7,9 @@ describe("role module should", () => {
     expect(rand).toBeLessThanOrEqual(300);
   });
 
-  it("return a critic value that must be -1, 0 or 1", () => {
+  it("return a critic value that must be high, low or none", () => {
     let crit = critic();
-    let isValidValue = crit === 0 || crit === -1 || crit === 1;
+    let isValidValue = crit === Critic.High || crit === Critic.Low || crit === Critic.None;
     expect(isValidValue).toBe(true);
   });
 
@@ -18,13 +18,13 @@ describe("role module should", () => {
     expect(hitValue).toBeGreaterThanOrEqual(Min);
   });
 
-  it("return false when first value of an against check is 0", () => {
+  it("return false when first value of against check is 0", () => {
     let aga = against(Min, 50);
     expect(aga).toBe(false);
   });
 
-  it("return false when second value of an against check is 0", () => {
-    let aga = against(false, Min);
-    expect(aga).toBe(false);
+  it("return false when second value of against check is 0", () => {
+    let aga = against(50, Min);
+    expect(aga).toBe(true);
   });
 });
