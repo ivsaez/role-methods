@@ -12,6 +12,11 @@ export function random(maximum: number): number {
     return Math.floor(Math.random() * topValue);
 }
 
+export function randomFromList<T>(list: T[]): T {
+    let index = random(list.length)
+    return list[index];
+}
+
 export function critic(): Critic{
     let value = random(Max);
     let result = Critic.None;
