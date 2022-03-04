@@ -13,7 +13,9 @@ export function random(maximum: number): number {
 }
 
 export function randomFromList<T>(list: T[]): T {
-    let index = random(list.length)
+    if(list.length === 1) return list[0];
+
+    let index = random(list.length - 1)
     return list[index];
 }
 

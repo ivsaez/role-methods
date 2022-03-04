@@ -1,6 +1,6 @@
 {
   "name": "role-methods",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Helper methods for role game calculations.",
   "main": "dist/index.js",
   "umd:main": "dist/index.umd.js",
